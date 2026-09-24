@@ -187,7 +187,7 @@ public class Project {
         System.out.flush();
         Scanner in = new Scanner(System.in);
         boolean done = false;
-        int s = 0;
+        int score = 0;
         String don = "no";
         while (!done) {
             System.out.println(c + " Caculations done");
@@ -313,7 +313,7 @@ public class Project {
                     System.out.println("That's not a int! Please try again.");
                     in.next();
                 }
-                s = 0;
+                score = 0;
                 int u = in.nextInt();
                 Project r = new Project(u);
                 int pType;
@@ -331,8 +331,8 @@ public class Project {
                         }
                         int ans = in.nextInt();
                         if (ans == a + b) {
-                            s++;
-                            r.setScore(s);
+                            score++;
+                            r.setScore(score);
                             System.out.println("Correct");
                         } else {
                             System.out.println("Incorrect the answer is " + (a + b));
@@ -348,8 +348,8 @@ public class Project {
                         }
                         int ans = in.nextInt();
                         if (ans == a - b) {
-                            s++;
-                            r.setScore(s);
+                            score++;
+                            r.setScore(score);
                             System.out.println("Correct");
                         } else {
                             System.out.println("Incorrect the answer is " + (a - b));
@@ -365,8 +365,8 @@ public class Project {
                         }
                         int ans = in.nextInt();
                         if (ans == a * b) {
-                            s++;
-                            r.setScore(s);
+                            score++;
+                            r.setScore(score);
                             System.out.println("Correct");
                         } else {
                             System.out.println("Incorrect the answer is " + (a * b));
@@ -382,8 +382,8 @@ public class Project {
                         }
                         double ans = in.nextDouble();
                         if (ans == Math.round(((double) a / b) * 100.0) / 100.0) {
-                            s++;
-                            r.setScore(s);
+                            score++;
+                            r.setScore(score);
                             System.out.println("Correct");
                         } else {
                             System.out
@@ -395,19 +395,19 @@ public class Project {
                 long time1 = System.currentTimeMillis();
                 System.out.println("Time spent " + (time1 - time) / 1000 + " seconds");
                 System.out.println("Test score " + r.getScore() + " / " + r.getQnum());
-                double d = r.getPer();
-                System.out.println(Math.round(d * 100.0) / 100.0 + " %");
-                if (d == 100) {
+                double per = r.getPer();
+                System.out.println(Math.round(per * 100.0) / 100.0 + " %");
+                if (per == 100) {
                     System.out.println("WOW perfect Score (ps you got a A+)");
-                } else if (d >= 90) {
+                } else if (per >= 90) {
                     System.out.println("Awesome a A");
-                } else if (d >= 80) {
+                } else if (per >= 80) {
                     System.out.println("Beautiful not bad a B");
-                } else if (d >= 70) {
+                } else if (per >= 70) {
                     System.out.println("Cutting it close with a C");
-                } else if (d >= 60) {
+                } else if (per >= 60) {
                     System.out.println("Dang near failing there with a D");
-                } else if (d >= 0) {
+                } else if (per >= 0) {
                     System.out.println("Failing with a F at least you have this Wonderfull calculator to help you out");
                 }
                 in.nextLine();
