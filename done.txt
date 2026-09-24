@@ -1,0 +1,11 @@
+my project is a simple caculator that also has a testing mode that quizes you
+i have used many meaningfull primitive int doubles Strings and boolians most declare the main method but there are alot in the other methods line 319 line 190 line 189 line 191 
+there is alot of arithmatic in all of the methods and there is type casting like when i use random and when the test has a division question line 324 line 384 line 182
+i have a custome class it is the project class and it sets up the testing funtion of my code line 125
+there is a non void method and it is getPer and it is used to get the persentage and store it in the per variable line 182 line 398
+there is alot of nested if staments in my code like to check the ii dd id di then the operation but there is also ! and || line 323 line
+i have dynamic loops like the code will end when the user types done when promted line 416 
+i have a static for loop for the amount questions in the test line 321 line 219
+most of my loops are infinate and use continue and break to leave the loop or go to the top  line 421
+i did many things for extra like i put a time for the test and made sure that the code could not break if the user inputed the wrong type and for srings any capitalization and blank spases will work and i have some randomness line 395
+i coded this way becous it is how i learnt and what i am use to but it is probly bloted and could be alot more effecient 
