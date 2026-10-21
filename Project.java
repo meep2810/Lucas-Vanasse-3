@@ -122,65 +122,6 @@ public class Project {
     }
 
     // }
-    public Project() {// sets test up
-        t = 0;
-        score = 0;
-        qNum = 10;
-
-    }
-
-    public Project(int q) {// sets test up
-        t = 0;
-        score = 0;
-        qNum = q;
-
-    }
-
-    public Project(int q, int te) {// sets test up
-        t = te;
-        score = 0;
-        qNum = q;
-
-    }
-
-    public Project(int q, int te, int s) {// sets test up
-        t = te;
-        score = s;
-        qNum = q;
-
-    }
-
-    // setter methods {
-    public void setTestNum(int te) {
-        this.t = te;
-    }
-
-    public void setScore(int s) {
-        this.score = s;
-    }
-
-    public void setQnum(int q) {
-        this.qNum = q;
-    }
-
-    // }
-    // getter methods {
-    public int getTestNum() {
-        return this.t;
-    }
-
-    public int getScore() {
-        return this.score;
-    }
-
-    public int getQnum() {
-        return this.qNum;
-    }
-
-    // }
-    public double getPer() {
-        return ((double) this.score / this.qNum) * 100;
-    }
 
     public static void main(String[] args) {
         System.out.print("\033[H\033[2J");// clear previous instance
@@ -315,10 +256,10 @@ public class Project {
                 }
                 score = 0;
                 int u = in.nextInt();
-                Project r = new Project(u);
+                Test test = new Test(u);
                 int pType;
                 long time = System.currentTimeMillis();// needs to be long
-                for (int i = 0; i < r.getQnum(); i++) {
+                for (int i = 0; i < test.getQnum(); i++) {
                     pType = (int) (Math.random() * 4) + 1;
                     if (pType == 1) {
                         int a = (int) (Math.random() * 100) + 1;
@@ -332,7 +273,7 @@ public class Project {
                         int ans = in.nextInt();
                         if (ans == a + b) {
                             score++;
-                            r.setScore(score);
+                            test.setScore(score);
                             System.out.println("Correct");
                         } else {
                             System.out.println("Incorrect the answer is " + (a + b));
@@ -349,7 +290,7 @@ public class Project {
                         int ans = in.nextInt();
                         if (ans == a - b) {
                             score++;
-                            r.setScore(score);
+                            test.setScore(score);
                             System.out.println("Correct");
                         } else {
                             System.out.println("Incorrect the answer is " + (a - b));
@@ -366,7 +307,7 @@ public class Project {
                         int ans = in.nextInt();
                         if (ans == a * b) {
                             score++;
-                            r.setScore(score);
+                            test.setScore(score);
                             System.out.println("Correct");
                         } else {
                             System.out.println("Incorrect the answer is " + (a * b));
@@ -383,7 +324,7 @@ public class Project {
                         double ans = in.nextDouble();
                         if (ans == Math.round(((double) a / b) * 100.0) / 100.0) {
                             score++;
-                            r.setScore(score);
+                            test.setScore(score);
                             System.out.println("Correct");
                         } else {
                             System.out
@@ -394,8 +335,8 @@ public class Project {
                 }
                 long time1 = System.currentTimeMillis();
                 System.out.println("Time spent " + (time1 - time) / 1000 + " seconds");
-                System.out.println("Test score " + r.getScore() + " / " + r.getQnum());
-                double per = r.getPer();
+                System.out.println("Test score " + test.getScore() + " / " + test.getQnum());
+                double per = test.getPer();
                 System.out.println(Math.round(per * 100.0) / 100.0 + " %");
                 if (per == 100) {
                     System.out.println("WOW perfect Score (ps you got a A+)");
