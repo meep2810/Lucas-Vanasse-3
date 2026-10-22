@@ -9,22 +9,22 @@ public class Cauculator {
         count = 0;
     }
 
-    public String add() {
+    public String add() {//adds x and y
         count++;
         return "" + x + " + " + y + " = " + (x + y);
     }
 
-    public String sub() {
+    public String sub() {//subtracts x and y
         count++;
         return "" + x + " - " + y + " = " + (x - y);
     }
 
-    public String mult() {
+    public String mult() {// mutiplies x and y
         count++;
         return "" + x + " * " + y + " = " + (x * y);
     }
 
-    public String div() {
+    public String div() {// divides x and y
         if (y == 0) {
             return "Error: Division by zero is undefined.";
         } else {
@@ -33,16 +33,28 @@ public class Cauculator {
         }
     }
 
-    public static int getCount() {
+    public static int getCount() {// get count
         return count;
     }
 
-    public void setX(double x){
+    public double getX() {// get x
+        return x;
+    }
+
+    public double getY() {// get y
+        return y;
+    }
+
+    public void setX(double x){// set x
         this.x = x;
     }
     
-    public void setY(double y) {
+    public void setY(double y) {// set y
         this.y = y;
+    }
+
+    public String toString(){// returns cauculator
+        return "x = "+x+" y = "+y+" count = "+count;
     }
 
 }

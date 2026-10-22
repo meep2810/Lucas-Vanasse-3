@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //Connor Bug Testing Comments
@@ -14,50 +15,50 @@ import java.util.Scanner;
 //  Logical errors: typos fixed
 public class Project {
 
-    
     public static void main(String[] args) {
         System.out.print("\033[H\033[2J");// clear previous instance
         System.out.flush();
         Scanner in = new Scanner(System.in);
+        ArrayList<Test> tests = new ArrayList<>();
         Cauculator cauculator = new Cauculator(0, 0);
         boolean done = false;
         int score = 0;
         String don = "no";
         while (!done) {
-            System.out.println(Cauculator.getCount()+ " Caculations done");
+            System.out.println(Cauculator.getCount() + " Caculations done");
             System.out.println("Welcome to the Java calculator what opperation would you like\ntest or calc ");
             // need to design test function fixed
             String mode = in.nextLine().toLowerCase().trim();
             if (mode.equals("calc")) {
                 while (!done) {
-                    System.out.println(Cauculator.getCount()+ " Caculations done");
+                    System.out.println(Cauculator.getCount() + " Caculations done");
                     System.out.println("input * + - / or done if done");
                     String op = in.nextLine().toLowerCase().trim();
                     if (op.equals("*") || op.equals("-") || op.equals("/") || op.equals("+")) {
-                            System.out.println("input num 1");
-                            while (!in.hasNextDouble()) {
-                                System.out.println("That's not a Number! Please try again.");
-                                in.next();
-                            }
-                            cauculator.setX(in.nextDouble()); 
-                             
-                            System.out.println("input num 2");
-                            while (!in.hasNextDouble()) {
-                                System.out.println("That's not a Number! Please try again.");
-                                in.next();
-                            }
-                            cauculator.setY(in.nextDouble()); 
+                        System.out.println("input num 1");
+                        while (!in.hasNextDouble()) {
+                            System.out.println("That's not a Number! Please try again.");
+                            in.next();
+                        }
+                        cauculator.setX(in.nextDouble());
 
-                            if (op.equals("+")) {
-                                System.out.println(cauculator.add());
-                            } else if (op.equals("-")) {
-                                System.out.println(cauculator.sub());
-                            } else if (op.equals("*")) {
-                                System.out.println(cauculator.mult());
-                            } else if (op.equals("/")) {
-                                System.out.println(cauculator.div());
-                            }
-                    } else if(op.equals("done")){
+                        System.out.println("input num 2");
+                        while (!in.hasNextDouble()) {
+                            System.out.println("That's not a Number! Please try again.");
+                            in.next();
+                        }
+                        cauculator.setY(in.nextDouble());
+
+                        if (op.equals("+")) {
+                            System.out.println(cauculator.add());
+                        } else if (op.equals("-")) {
+                            System.out.println(cauculator.sub());
+                        } else if (op.equals("*")) {
+                            System.out.println(cauculator.mult());
+                        } else if (op.equals("/")) {
+                            System.out.println(cauculator.div());
+                        }
+                    } else if (op.equals("done")) {
                         break;
                     } else {
                         System.out.println("invalid opperation");
@@ -80,6 +81,7 @@ public class Project {
                 score = 0;
                 int numOfQ = in.nextInt();
                 Test test = new Test(numOfQ);
+                tests.add(test);
                 int pType;
                 long time = System.currentTimeMillis();// needs to be long
                 for (int i = 0; i < test.getQnum(); i++) {
@@ -174,6 +176,7 @@ public class Project {
                 } else if (per >= 0) {
                     System.out.println("Failing with a F at least you have this Wonderfull calculator to help you out");
                 }
+                System.out.println("Average test score is " + Test.findAverage(tests) + "%");
                 in.nextLine();
                 System.out.println("are you done if so input done");
                 don = in.nextLine().toLowerCase().trim();

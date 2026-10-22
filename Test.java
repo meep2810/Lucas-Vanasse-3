@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+
 public class Test {
 
     private int testNum;// tests taken
     private int score;// points on test
     private int qNum;
+    
 
     public Test() {// sets test up
         testNum = 0;
@@ -33,35 +36,45 @@ public class Test {
     }
 
     // setter methods {
-    public void setTestNum(int te) {
+    public void setTestNum(int te) {// set testNum
         this.testNum = te;
     }
 
-    public void setScore(int s) {
+    public void setScore(int s) {// set score
         this.score = s;
     }
 
-    public void setQnum(int q) {
+    public void setQnum(int q) {// set Qnum
         this.qNum = q;
     }
 
     // }
     // getter methods {
-    public int getTestNum() {
+    public int getTestNum() {//get testNum
         return this.testNum;
     }
 
-    public int getScore() {
+    public int getScore() {//get score
         return this.score;
     }
 
-    public int getQnum() {
+    public int getQnum() {//get qNum
         return this.qNum;
     }
 
     // }
-    public double getPer() {
+    public double getPer() {// get test percent corect
         return ((double) this.score / this.qNum) * 100;
     }
-
+    // Precondition Array list length > 0
+    public static double findAverage(ArrayList<Test> t){// get over all percent over multible tests
+        double sum = 0;
+        int c = 0;
+        for (Test test : t) {
+            sum += test.getPer();
+            c++;
+        }
+        return sum/c;
+    }
+    // postcondition sum > 0
 }
