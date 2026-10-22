@@ -26,8 +26,7 @@ public class Project {
         String don = "no";
         while (!done) {
             System.out.println(Cauculator.getCount() + " Caculations done");
-            System.out.println("Welcome to the Java calculator what opperation would you like\ntest or calc ");
-            // need to design test function fixed
+            System.out.println("Welcome to the Java calculator what opperation would you like\ntest or calc");
             String mode = in.nextLine().toLowerCase().trim();
             if (mode.equals("calc")) {
                 while (!done) {
