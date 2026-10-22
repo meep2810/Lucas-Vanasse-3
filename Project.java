@@ -24,6 +24,7 @@ public class Project {
         boolean done = false;
         int score = 0;
         String don = "no";
+        String[] validOps = {"+","-","*","/"};
         while (!done) {
             System.out.println(Cauculator.getCount() + " Caculations done");
             System.out.println("Welcome to the Java calculator what opperation would you like\ntest or calc");
@@ -33,7 +34,7 @@ public class Project {
                     System.out.println(Cauculator.getCount() + " Caculations done");
                     System.out.println("input * + - / or done if done");
                     String op = in.nextLine().toLowerCase().trim();
-                    if (op.equals("*") || op.equals("-") || op.equals("/") || op.equals("+")) {
+                    if (cauculator.isOpValid(validOps, op)) {
                         System.out.println("input num 1");
                         while (!in.hasNextDouble()) {
                             System.out.println("That's not a Number! Please try again.");

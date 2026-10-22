@@ -1,5 +1,5 @@
 public class Cauculator {
-    private static int count = 0;// keaps track of caculations on all cauculators so needs to be static
+    private static int count = 0;// keaps track of caculations on all cauculators so needs to be static becouse it is part of the class not a particular object
     private double x;
     private double y;
 
@@ -33,7 +33,7 @@ public class Cauculator {
         }
     }
 
-    public static int getCount() {// get count returns a static variable so needs to be static
+    public static int getCount() {// get count returns a static variable so needs to be static becouse it woild have to be declared with a object otherwise
         return count;
     }
 
@@ -55,6 +55,15 @@ public class Cauculator {
 
     public String toString(){// returns cauculator
         return "x = "+x+" y = "+y+" count = "+count;
+    }
+    public boolean isOpValid(String[] s, String op){
+        boolean valid = false;
+        for (int i = 0; i < s.length; i++) {
+            if(s[i].equals(op)){
+                valid = true;
+            }
+        }
+        return valid;
     }
 
 }

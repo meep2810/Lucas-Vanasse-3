@@ -8,24 +8,17 @@ public class Test {
     
 
     public Test() {// sets test up
-        testNum = 0;
-        score = 0;
-        qNum = 10;
+       this(10,0,0);
 
     }
 
     public Test(int q) {// sets test up
-        testNum = 0;
-        score = 0;
-        qNum = q;
+        this(q,0,0);
 
     }
 
     public Test(int q, int te) {// sets test up
-        testNum = te;
-        score = 0;
-        qNum = q;
-
+        this(q, te, 0);
     }
 
     public Test(int q, int te, int s) {// sets test up
