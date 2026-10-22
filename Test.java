@@ -1,32 +1,32 @@
 public class Test {
 
-    private int t;// tests taken
+    private int testNum;// tests taken
     private int score;// points on test
     private int qNum;
 
     public Test() {// sets test up
-        t = 0;
+        testNum = 0;
         score = 0;
         qNum = 10;
 
     }
 
     public Test(int q) {// sets test up
-        t = 0;
+        testNum = 0;
         score = 0;
         qNum = q;
 
     }
 
     public Test(int q, int te) {// sets test up
-        t = te;
+        testNum = te;
         score = 0;
         qNum = q;
 
     }
 
     public Test(int q, int te, int s) {// sets test up
-        t = te;
+        testNum = te;
         score = s;
         qNum = q;
 
@@ -34,7 +34,7 @@ public class Test {
 
     // setter methods {
     public void setTestNum(int te) {
-        this.t = te;
+        this.testNum = te;
     }
 
     public void setScore(int s) {
@@ -48,7 +48,7 @@ public class Test {
     // }
     // getter methods {
     public int getTestNum() {
-        return this.t;
+        return this.testNum;
     }
 
     public int getScore() {

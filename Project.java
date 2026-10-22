@@ -13,229 +13,52 @@ import java.util.Scanner;
 //Thomas Murphy: Calculations themselves are correct but program breaks if any strings are inputed and has no safety nets for incorrect data types.
 //  Logical errors: typos fixed
 public class Project {
-    private static int c = 0;// keaps track of caculations
-    private int t;// tests taken
-    private int score;// points on test
-    private int qNum;
-    // addition{
 
-    public static String add(int x, int y) {
-        c++;
-        return "" + x + " + " + y + " = " + (x + y);
-    }
-
-    public static String add(double x, int y) {
-        c++;
-        return "" + x + " + " + y + " = " + (x + y);
-    }
-
-    public static String add(double x, double y) {
-        c++;
-        return "" + x + " + " + y + " = " + (x + y);
-    }
-
-    public static String add(int x, double y) {
-        c++;
-        return "" + x + " + " + y + " = " + (x + y);
-    }
-
-    // }
-    // subtraction{
-    public static String sub(int x, int y) {
-        c++;
-        return "" + x + " - " + y + " = " + (x - y);
-    }
-
-    public static String sub(double x, int y) {
-        c++;
-        return "" + x + " - " + y + " = " + (x - y);
-    }
-
-    public static String sub(double x, double y) {
-        c++;
-        return "" + x + " - " + y + " = " + (x - y);
-    }
-
-    public static String sub(int x, double y) {
-        c++;
-        return "" + x + " - " + y + " = " + (x - y);
-    }
-
-    // }
-    // multiplication{
-    public static String mult(int x, int y) {
-        c++;
-        return "" + x + " * " + y + " = " + (x * y);
-    }
-
-    public static String mult(double x, int y) {
-        c++;
-        return "" + x + " * " + y + " = " + (x * y);
-    }
-
-    public static String mult(double x, double y) {
-        c++;
-        return "" + x + " * " + y + " = " + (x * y);
-    }
-
-    public static String mult(int x, double y) {
-        c++;
-        return "" + x + " * " + y + " = " + (x * y);
-    }
-
-    // }
-    // division{
-    public static String div(int x, int y) {
-        if (y == 0) {
-            return "Error: Division by zero is undefined.";
-        } else {
-            c++;
-            return "" + x + " / " + y + " = " + (x / y);
-        }
-    }
-
-    public static String div(double x, int y) {
-        if (y == 0) {
-            return "Error: Division by zero is undefined.";
-        } else {
-            c++;
-            return "" + x + " / " + y + " = " + (x / y);
-        }
-    }
-
-    public static String div(double x, double y) {
-        if (y == 0) {
-            return "Error: Division by zero is undefined.";
-        } else {
-            c++;
-            return "" + x + " / " + y + " = " + (x / y);
-        }
-    }
-
-    public static String div(int x, double y) {
-        if (y == 0) {
-            return "Error: Division by zero is undefined.";
-        } else {
-            c++;
-            return "" + x + " / " + y + " = " + (x / y);
-        }
-    }
-
-    // }
-
+    
     public static void main(String[] args) {
         System.out.print("\033[H\033[2J");// clear previous instance
         System.out.flush();
         Scanner in = new Scanner(System.in);
+        Cauculator cauculator = new Cauculator(0, 0);
         boolean done = false;
         int score = 0;
         String don = "no";
         while (!done) {
-            System.out.println(c + " Caculations done");
-            System.out.println("Welcome to the Java calculator what opperation would you like\n test or calc ");
+            System.out.println(Cauculator.getCount()+ " Caculations done");
+            System.out.println("Welcome to the Java calculator what opperation would you like\ntest or calc ");
             // need to design test function fixed
             String mode = in.nextLine().toLowerCase().trim();
             if (mode.equals("calc")) {
                 while (!done) {
-                    System.out.println(c + " Caculations done");
-                    System.out.println("input * + - or /");
-                    String op = in.nextLine();
+                    System.out.println(Cauculator.getCount()+ " Caculations done");
+                    System.out.println("input * + - / or done if done");
+                    String op = in.nextLine().toLowerCase().trim();
                     if (op.equals("*") || op.equals("-") || op.equals("/") || op.equals("+")) {
-                        System.out.println("input Number type i is int d is double ii dd di id");
-                        // a little bit of explanation could be good here
-                        String type = in.nextLine().toLowerCase().trim();
-                        if (type.equals("ii")) {
-                            System.out.println("input num 1");
-                            while (!in.hasNextInt()) {
-                                System.out.println("That's not a int! Please try again.");
-                                in.next();// consumes input
-                            }
-                            int x = in.nextInt(); // need to catch exception of other variable types
-                            System.out.println("input num 2");
-                            while (!in.hasNextInt()) {
-                                System.out.println("That's not a int! Please try again.");
-                                in.next();
-                            }
-                            int y = in.nextInt(); // need to catch exception of other variable types
-                            if (op.equals("+")) {
-                                System.out.println(add(x, y));
-                            } else if (op.equals("-")) {
-                                System.out.println(sub(x, y));
-                            } else if (op.equals("*")) {
-                                System.out.println(mult(x, y));
-                            } else if (op.equals("/")) {
-                                System.out.println(div(x, y));
-                            }
-                        } else if (type.equals("dd")) {
                             System.out.println("input num 1");
                             while (!in.hasNextDouble()) {
-                                System.out.println("That's not a double! Please try again.");
+                                System.out.println("That's not a Number! Please try again.");
                                 in.next();
                             }
-                            double x = in.nextDouble(); // need to catch exception of other variable types
+                            cauculator.setX(in.nextDouble()); 
+                             
                             System.out.println("input num 2");
                             while (!in.hasNextDouble()) {
-                                System.out.println("That's not a double! Please try again.");
+                                System.out.println("That's not a Number! Please try again.");
                                 in.next();
                             }
-                            double y = in.nextDouble(); // need to catch exception of other variable types
+                            cauculator.setY(in.nextDouble()); 
+
                             if (op.equals("+")) {
-                                System.out.println(add(x, y));
+                                System.out.println(cauculator.add());
                             } else if (op.equals("-")) {
-                                System.out.println(sub(x, y));
+                                System.out.println(cauculator.sub());
                             } else if (op.equals("*")) {
-                                System.out.println(mult(x, y));
+                                System.out.println(cauculator.mult());
                             } else if (op.equals("/")) {
-                                System.out.println(div(x, y));
+                                System.out.println(cauculator.div());
                             }
-                        } else if (type.equals("di")) {
-                            System.out.println("input num 1");
-                            while (!in.hasNextDouble()) {
-                                System.out.println("That's not a double! Please try again.");
-                                in.next();
-                            }
-                            double x = in.nextDouble(); // need to catch exception of other variable types
-                            System.out.println("input num 2");
-                            while (!in.hasNextInt()) {
-                                System.out.println("That's not a int! Please try again.");
-                                in.next();
-                            }
-                            int y = in.nextInt(); // need to catch exception of other variable types
-                            if (op.equals("+")) {
-                                System.out.println(add(x, y));
-                            } else if (op.equals("-")) {
-                                System.out.println(sub(x, y));
-                            } else if (op.equals("*")) {
-                                System.out.println(mult(x, y));
-                            } else if (op.equals("/")) {
-                                System.out.println(div(x, y));
-                            }
-                        } else if (type.equals("id")) {
-                            System.out.println("input num 1");
-                            while (!in.hasNextInt()) {
-                                System.out.println("That's not a int! Please try again.");
-                                in.next();
-                            }
-                            int x = in.nextInt(); // need to catch exception of other variable types
-                            System.out.println("input num 2");
-                            while (!in.hasNextDouble()) {
-                                System.out.println("That's not a double! Please try again.");
-                                in.next();
-                            }
-                            double y = in.nextDouble(); // need to catch exception of other variable types
-                            if (op.equals("+")) {
-                                System.out.println(add(x, y));
-                            } else if (op.equals("-")) {
-                                System.out.println(sub(x, y));
-                            } else if (op.equals("*")) {
-                                System.out.println(mult(x, y));
-                            } else if (op.equals("/")) {
-                                System.out.println(div(x, y));
-                            }
-                        } else {
-                            System.out.println("invalid type");
-                            continue;
-                        }
+                    } else if(op.equals("done")){
+                        break;
                     } else {
                         System.out.println("invalid opperation");
                         continue;
@@ -255,8 +78,8 @@ public class Project {
                     in.next();
                 }
                 score = 0;
-                int u = in.nextInt();
-                Test test = new Test(u);
+                int numOfQ = in.nextInt();
+                Test test = new Test(numOfQ);
                 int pType;
                 long time = System.currentTimeMillis();// needs to be long
                 for (int i = 0; i < test.getQnum(); i++) {
