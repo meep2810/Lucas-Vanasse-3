@@ -2,27 +2,22 @@ import java.util.ArrayList;
 
 public class Test {
 
-    private int testNum;// tests taken
+    private static int testNum;// tests taken
     private int score;// points on test
     private int qNum;
-    
 
     public Test() {// sets test up
-       this(10,0,0);
+        this(10, 0);
 
     }
 
     public Test(int q) {// sets test up
-        this(q,0,0);
+        this(q, 0);
 
     }
 
-    public Test(int q, int te) {// sets test up
-        this(q, te, 0);
-    }
-
-    public Test(int q, int te, int s) {// sets test up
-        testNum = te;
+    public Test(int q, int s) {// sets test up
+        testNum++;
         score = s;
         qNum = q;
 
@@ -43,31 +38,21 @@ public class Test {
 
     // }
     // getter methods {
-    public int getTestNum() {//get testNum
-        return this.testNum;
+    public static int getTestNum() {// get testNum
+        if (testNum >= 10) {
+            testNum = 0;
+        }
+        return testNum;
     }
 
-    public int getScore() {//get score
+    public int getScore() {// get score
         return this.score;
     }
 
-    public int getQnum() {//get qNum
+    public int getQnum() {// get qNum
         return this.qNum;
     }
 
     // }
-    public double getPer() {// get test percent corect
-        return ((double) this.score / this.qNum) * 100;
-    }
-    // Precondition Array list length > 0
-    public static double findAverage(ArrayList<Test> t){// get over all percent over multible tests
-        double sum = 0;
-        int c = 0;
-        for (Test test : t) {
-            sum += test.getPer();
-            c++;
-        }
-        return sum/c;
-    }
-    // postcondition sum > 0
+
 }

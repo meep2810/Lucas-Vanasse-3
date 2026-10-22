@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 //Connor Bug Testing Comments
-//I would appreciate a little big more explanation about the input types (ii, id, di, dd)       fixed
-//Exceptions need to be caught when asking for user input of integer and variable types - right now the code just breaks   fixed 
-//You still need to design the test function    fixed
+//I would appreciate a little bit more explanation about the input types (ii, id, di, dd) fixed
+//Exceptions need to be caught when asking for user input of integer and variable types - right now the code just breaks fixed
+//You still need to design the test function fixed
 //But overall good job!
 
 //Wendy Wang
@@ -12,19 +12,19 @@ import java.util.Scanner;
 // make sure that ints can't have doubles fixed
 
 //Thomas Murphy: Calculations themselves are correct but program breaks if any strings are inputed and has no safety nets for incorrect data types.
-//  Logical errors: typos fixed
+// Logical errors: typos fixed
 public class Project {
 
     public static void main(String[] args) {
         System.out.print("\033[H\033[2J");// clear previous instance
         System.out.flush();
         Scanner in = new Scanner(System.in);
-        ArrayList<Test> tests = new ArrayList<>();
+        Test[] tests = new Test[10];
         Cauculator cauculator = new Cauculator(0, 0);
         boolean done = false;
         int score = 0;
         String don = "no";
-        String[] validOps = {"+","-","*","/"};
+        String[] validOps = { "+", "-", "*", "/" };
         while (!done) {
             System.out.println(Cauculator.getCount() + " Caculations done");
             System.out.println("Welcome to the Java calculator what opperation would you like\ntest or calc");
@@ -81,7 +81,7 @@ public class Project {
                 score = 0;
                 int numOfQ = in.nextInt();
                 Test test = new Test(numOfQ);
-                tests.add(test);
+                tests[Test.getTestNum()] = test;
                 int pType;
                 long time = System.currentTimeMillis();// needs to be long
                 for (int i = 0; i < test.getQnum(); i++) {
@@ -161,7 +161,8 @@ public class Project {
                 long time1 = System.currentTimeMillis();
                 System.out.println("Time spent " + (time1 - time) / 1000 + " seconds");
                 System.out.println("Test score " + test.getScore() + " / " + test.getQnum());
-                double per = test.getPer();
+                double per = cauculator.getPer(test);
+                double aPer = Cauculator.findAverage(tests, cauculator);
                 System.out.println(Math.round(per * 100.0) / 100.0 + " %");
                 if (per == 100) {
                     System.out.println("WOW perfect Score (ps you got a A+)");
@@ -176,7 +177,8 @@ public class Project {
                 } else if (per >= 0) {
                     System.out.println("Failing with a F at least you have this Wonderfull calculator to help you out");
                 }
-                System.out.println("Average test score is " + Test.findAverage(tests) + "%");
+                System.out.println(
+                        "Average of last 10 test scores are " + Math.round(aPer * 100) / 100 + "%");
                 in.nextLine();
                 System.out.println("are you done if so input done");
                 don = in.nextLine().toLowerCase().trim();
