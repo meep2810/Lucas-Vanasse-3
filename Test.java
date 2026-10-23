@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Test {
 
@@ -24,8 +23,8 @@ public class Test {
     }
 
     // setter methods {
-    public void setTestNum(int te) {// set testNum
-        this.testNum = te;
+    public static void setTestNum(int te) {// set testNum
+        testNum = te;
     }
 
     public void setScore(int s) {// set score

@@ -84,7 +84,7 @@ public class Cauculator {
         int c = 0;
         for (Test test : t) {
             if (test != null) {
-                sum += ca.getPer();
+                sum += ca.getPer(test);
                 c++;
             }
 
