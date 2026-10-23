@@ -1,11 +1,14 @@
 public class Cauculator {
     private static int count = 0;// keaps track of caculations on all cauculators so needs to be static becouse
                                  // it is part of the class not a particular object
+
+    // QUESTION: What purpose does the count variable serve in the program?
     private double x;
     private double y;
 
     public Cauculator(double x, double y) {
-        this.x = x;
+        this.x = x; // PRAISE: Great use of this here! You use it perfectly to distinguish the
+                    // parameter from the instance variable
         this.y = y;
         count = 0;
     }
@@ -83,7 +86,8 @@ public class Cauculator {
         double sum = 0;
         int c = 0;
         for (Test test : t) {
-            if (test != null) {
+            if (test != null) { // PRAISE: Great thought to check for null variables here so that the program
+                                // doesn't raise an error
                 sum += ca.getPer(test);
                 c++;
             }
@@ -91,5 +95,31 @@ public class Cauculator {
         }
         return sum / c;
     }
+
     // postcondition sum > 0
+    public static double findMax(Test[] t, Cauculator ca) {// get max percent over last 10 tests
+        double max = 0.0;
+
+        for (Test test : t) {
+            if (test != null && max < ca.getPer(test)) {
+                max = ca.getPer(test);
+
+            }
+
+        }
+        return max;
+    }
+
+    public static double findMin(Test[] t, Cauculator ca) {// get min percent over last 10 tests
+        double min = 0.0;
+
+        for (Test test : t) {
+            if (test != null && min > ca.getPer(test)) {
+                min = ca.getPer(test);
+
+            }
+
+        }
+        return min;
+    }
 }

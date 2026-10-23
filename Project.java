@@ -27,7 +27,26 @@ public class Project {
         String[] validOps = { "+", "-", "*", "/" };
         while (!done) {
             System.out.println(Cauculator.getCount() + " Caculations done");
-            System.out.println("Welcome to the Java calculator what opperation would you like\ntest or calc");
+            System.out.println("Welcome to the Java calculator what opperation would you like\ntest or calc"); // SUGGESTION:
+                                                                                                               // You
+                                                                                                               // could
+                                                                                                               // explain
+                                                                                                               // what
+                                                                                                               // each
+                                                                                                               // of
+                                                                                                               // these
+                                                                                                               // modes
+                                                                                                               // do.
+                                                                                                               // That
+                                                                                                               // would
+                                                                                                               // make
+                                                                                                               // the
+                                                                                                               // program
+                                                                                                               // more
+                                                                                                               // usable
+                                                                                                               // by an
+                                                                                                               // ordinary
+                                                                                                               // person.
             String mode = in.nextLine().toLowerCase().trim();
             if (mode.equals("calc")) {
                 while (!done) {
@@ -163,6 +182,8 @@ public class Project {
                 System.out.println("Test score " + test.getScore() + " / " + test.getQnum());
                 double per = cauculator.getPer(test);
                 double aPer = Cauculator.findAverage(tests, cauculator);
+                double max = Cauculator.findMax(tests, cauculator);
+                double min = Cauculator.findMin(tests, cauculator);
                 System.out.println(Math.round(per * 100.0) / 100.0 + " %");
                 if (per == 100) {
                     System.out.println("WOW perfect Score (ps you got a A+)");
@@ -179,6 +200,10 @@ public class Project {
                 }
                 System.out.println(
                         "Average of last 10 test scores are " + Math.round(aPer * 100) / 100 + "%");
+                System.out.println(
+                        "Max of last 10 test scores are " + max + "%");
+                System.out.println(
+                        "Min of last 10 test scores are " + min + "%");
                 in.nextLine();
                 System.out.println("are you done if so input done");
                 don = in.nextLine().toLowerCase().trim();

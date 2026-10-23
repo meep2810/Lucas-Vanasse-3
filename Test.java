@@ -23,10 +23,14 @@ public class Test {
     }
 
     // setter methods {
+    // STYLE: the parameter "te" could be renamed "testnum" and then this could be
+    // used
     public static void setTestNum(int te) {// set testNum
         testNum = te;
     }
 
+    // STYLE: the parameter "s" could be renamed "score" and then this could be
+    // used
     public void setScore(int s) {// set score
         this.score = s;
     }
